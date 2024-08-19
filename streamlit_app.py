@@ -14,10 +14,8 @@ if submitlinks:
     for j in search(links, tld="co.in", num=numlinks, stop=numlinks, pause=2):
         st.write(j)
 
-from nltk.corpus import wordnet
-
 findsynonyms = st.text_input("Find synonyms for: ")
 submits = st.button("Submit")
 
 if submits:
-    st.write(f"https://www.google.com/search?client=ubuntu-sn&channel=fs&q={findsynonyms}+synonyms")
+    st.write("https://www.google.com/search?client=ubuntu-sn&channel=fs&q="+findsynonyms+"+synonyms")
