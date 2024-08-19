@@ -1,5 +1,7 @@
 import streamlit as st
 from icrawler.builtin import GoogleImageCrawler
+import nltk
+from nltk.corpus import wordnet
 
 try:
     from googlesearch import search
@@ -18,4 +20,10 @@ findsynonyms = st.text_input("Find synonyms for: ")
 submits = st.button("Submit")
 
 if submits:
-    st.write("https://www.google.com/search?client=ubuntu-sn&channel=fs&q="+findsynonyms+"+synonyms")
+    synonyms = []
+    for syn in wordnet.synsets(findsynonyms): 
+        for l in syn.lemmas(): 
+            synonyms.append(l.name())
+    synonyms = list(set(synonyms))
+    for i in range(len(synonyms)):
+        st.write(synonyms[i])
