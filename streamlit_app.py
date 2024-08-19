@@ -21,9 +21,11 @@ submits = st.button("Submit")
 
 if submits:
     synonyms = []
+    nltk.download("wordnet")
     for syn in wordnet.synsets(findsynonyms): 
         for l in syn.lemmas(): 
             synonyms.append(l.name())
     synonyms = list(set(synonyms))
+    print(synonyms)
     for i in range(len(synonyms)):
         st.write(synonyms[i])
