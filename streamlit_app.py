@@ -1,7 +1,7 @@
 import streamlit as st
 from icrawler.builtin import GoogleImageCrawler
 import nltk
-import translators as ts
+# import translators as ts
 from nltk.corpus import wordnet
 
 try:
